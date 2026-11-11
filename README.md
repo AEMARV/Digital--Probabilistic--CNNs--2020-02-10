@@ -1,9 +1,11 @@
-DPN
-A probabilistic framework for learning based on Pytorch.
-DPN is comfortable for rapid experiments. the experimental setups are saved automatically and can be accessed anytime.
-The framework uses maximum probability theory to optimize large scale models.
+# Digital probabilistic CNNs
 
+Opened 2020-02-10.
 
-Maximum Probability theorem is a black box approach for regularizing and Debiasing large models.
+A PyTorch harness for probabilistic networks. A run records its setup under `results/`, so an experiment can be reopened later.
 
-Refer to https://arxiv.org/pdf/2203.12145 to see experimental details. The paper shows that deploying mp theorem for regularization on 1080 different networks, reduces the variance of generalization error, while improving the mean of the generalization error.
+Models are in `src/models` (`klmodels.py`, `realmodels.py`). Layers, net parsers, and the training loop sit beside them. `src/bayesgrad.py` is the gradient path for the KL parameterization.
+
+Regularization follows the maximum-probability account: the probability of the trained model, read from the distribution the model defines.
+
+The later writeup of that regularization is [Out of Distribution Detection, Generalization, and Robustness Triangle with Maximum Probability Theorem](https://arxiv.org/abs/2203.12145). The finite-state account of a convolutional net is [Rediscovering Deep Neural Networks Through Finite-State Distributions](https://arxiv.org/abs/1809.10073).
